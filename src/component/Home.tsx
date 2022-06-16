@@ -145,7 +145,90 @@ export const Home = () => {
                     </Menu.Item>
                 </Menu>
             </div>
-         
+            <div className='home__right'>
+                <Outlet/>
+            </div>
+            <div className='home__profile'>
+                <button className='profile__notify-btn' style={{backgroundColor: `${bgNotify}`}} onClick={()=> {
+                    setStatusNotify(!statusNotify);
+                }}>
+                    <i className="fa-solid fa-bell" style={{color: `${colorNotifyBtn}`}}></i>
+                </button>
+                <div className='profile__content' onClick={()=> {
+                    window.location.replace('/profile');
+                }}>
+                    <div className='profile__img' style={{backgroundImage: `url('${imageProfile}')`, backgroundSize: 'cover'}}/>
+                    <div className='profile__txt'>
+                        <span>Xin chào</span>
+                        {/* <p>Lê Quỳnh Ái Vân</p> */}
+                        <p>{userLogin[0].hoTen}</p>
+                    </div>
+                </div>
+                {
+                    statusNotify ?
+                    <div className='profile__notify'>
+                        <div className='profile__notify-heading'>
+                            <h3>Thông báo</h3>
+                        </div>
+                        <div className='profile__notify-content'>
+                            <ul className='profile__notify-list'>
+                                {renderNotifyContent()}
+                                {/* <li className="profile__notify-item">
+                                    <div>
+                                        <span>Người dùng: Nguyễn Thị Thùy Dung</span>
+                                        <p>Thời gian nhận số: 12h20 ngày 30/11/2021</p>
+                                    </div>
+                                </li>
+                                <li className="profile__notify-item">
+                                    <div>
+                                        <span>Người dùng: Nguyễn Thiên Chinh</span>
+                                        <p>Thời gian nhận số: 12h20 ngày 30/11/2021</p>
+                                    </div>
+                                </li>
+                                <li className="profile__notify-item">
+                                    <div>
+                                        <span>Người dùng: Võ Thị Kim Liên</span>
+                                        <p>Thời gian nhận số: 12h20 ngày 30/11/2021</p>
+                                    </div>
+                                </li>
+                                <li className="profile__notify-item">
+                                    <div>
+                                        <span>Người dùng: Hoàng Nguyễn Quốc Huy</span>
+                                        <p>Thời gian nhận số: 12h20 ngày 30/11/2021</p>
+                                    </div>
+                                </li>
+                                <li className="profile__notify-item">
+                                    <div>
+                                        <span>Người dùng: Võ Ngọc Lan Anh</span>
+                                        <p>Thời gian nhận số: 12h20 ngày 30/11/2021</p>
+                                    </div>
+                                </li>
+                                <li className="profile__notify-item">
+                                    <div>
+                                        <span>Người dùng: Nguyễn Thị Trúc Anh</span>
+                                        <p>Thời gian nhận số: 12h20 ngày 30/11/2021</p>
+                                    </div>
+                                </li>
+                                <li className="profile__notify-item">
+                                    <div>
+                                        <span>Người dùng: Nguyễn Trung Toàn</span>
+                                        <p>Thời gian nhận số: 12h20 ngày 30/11/2021</p>
+                                    </div>
+                                </li>
+                                <li className="profile__notify-item">
+                                    <div>
+                                        <span>Người dùng: Phạm Hồng Ngọc</span>
+                                        <p>Thời gian nhận số: 12h20 ngày 30/11/2021</p>
+                                    </div>
+                                </li> */}
+                            </ul>  
+                        </div>  
+                    </div>
+                    :
+                    <></>
+                }
+            </div>
+
         </div>
     </div>
   )
